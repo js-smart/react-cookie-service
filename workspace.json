@@ -1,6 +1,54 @@
 {
   "version": 2,
   "projects": {
+    "react-cookie-service": {
+      "root": "libs/react-cookie-service",
+      "sourceRoot": "libs/react-cookie-service/src",
+      "projectType": "library",
+      "targets": {
+        "build": {
+          "executor": "@nrwl/web:package",
+          "outputs": [
+            "{options.outputPath}"
+          ],
+          "options": {
+            "outputPath": "dist/libs/react-cookie-service",
+            "tsConfig": "libs/react-cookie-service/tsconfig.lib.json",
+            "project": "libs/react-cookie-service/package.json",
+            "entryFile": "libs/react-cookie-service/src/index.ts",
+            "external": [
+              "react/jsx-runtime"
+            ],
+            "rollupConfig": "@nrwl/react/plugins/bundle-rollup",
+            "assets": [
+              {
+                "glob": "libs/react-cookie-service/README.md",
+                "input": ".",
+                "output": "."
+              }
+            ]
+          }
+        },
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/react-cookie-service/**/*.{ts,tsx,js,jsx}"
+            ]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": [
+            "coverage/libs/react-cookie-service"
+          ],
+          "options": {
+            "jestConfig": "libs/react-cookie-service/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
     "react-cookie-service-example": {
       "root": "apps/react-cookie-service-example",
       "sourceRoot": "apps/react-cookie-service-example/src",
@@ -8,7 +56,9 @@
       "targets": {
         "build": {
           "executor": "@nrwl/web:build",
-          "outputs": ["{options.outputPath}"],
+          "outputs": [
+            "{options.outputPath}"
+          ],
           "options": {
             "outputPath": "dist/apps/react-cookie-service-example",
             "index": "apps/react-cookie-service-example/src/index.html",

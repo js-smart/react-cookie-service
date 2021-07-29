@@ -27,12 +27,17 @@
     ]
   },
   "projects": {
+    "react-cookie-service": {
+      "tags": []
+    },
     "react-cookie-service-example": {
       "tags": []
     },
     "react-cookie-service-example-e2e": {
       "tags": [],
-      "implicitDependencies": ["react-cookie-service-example"]
+      "implicitDependencies": [
+        "react-cookie-service-example"
+      ]
     }
   }
 }
