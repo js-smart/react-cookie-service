@@ -24,12 +24,11 @@ npm install --save @ngxsmart/react-cookie-service
 import React, { Component } from 'react'
 import { useCookies } from '@ngxsmart/react-cookie-service';
 
-
 export default function Example() {
-  const { getCookies } = useCookies();
+  const { check, getCookie, getAllCookies, setCookie, deleteCookie, deleteAllCookies } = useCookies();
   return (
     <div>
-      <h2>{JSON.stringify(getCookies)}</h2>
+      <h2>{JSON.stringify(getAllCookies)}</h2>
     </div>
   )
 }
