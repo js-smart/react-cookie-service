@@ -38,6 +38,10 @@ Use the following command to build the library
 
 ```bash
 nx build react-cookie-service
+
+or 
+
+npm run  build  react-cookie-service
 ```
 
 ## Publish to NPM
