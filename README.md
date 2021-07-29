@@ -28,6 +28,10 @@ export default function Example() {
 }
 ```
 
+## Running unit tests
+
+Run `nx test react-cookie-service` to execute the unit tests via [Jest](https://jestjs.io).
+
 ## Build
 
 Use the following command to build the library
