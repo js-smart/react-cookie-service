@@ -20,5 +20,5 @@ jobs:
         uses: JS-DevTools/npm-publish@v1
         with:
           token: ${{ secrets.NPM_TOKEN }}
-          package: dist/libs/react-cookie-service/
+          package: libs/react-cookie-service/package.json
           access: public
