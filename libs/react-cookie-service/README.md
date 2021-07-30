@@ -14,18 +14,24 @@ npm install --save @ngxsmart/react-cookie-service
 ## Usage
 
 ```tsx
-import React, { Component } from 'react'
+import React, { Component } from 'react';
 import { useCookies } from '@ngxsmart/react-cookie-service';
 
 export default function Example() {
-  const { check, getCookie, getAllCookies, setCookie, deleteCookie, deleteAllCookies } = useCookies();
+  const {
+    check,
+    getCookie,
+    getAllCookies,
+    setCookie,
+    deleteCookie,
+    deleteAllCookies,
+  } = useCookies();
   return (
     <div>
       <h2>{JSON.stringify(getAllCookies)}</h2>
     </div>
-  )
+  );
 }
-
 ```
 
 ## Running unit tests
@@ -39,7 +45,7 @@ Use the following command to build the library
 ```bash
 nx build react-cookie-service
 
-or 
+or
 
 npm run  build  react-cookie-service
 ```

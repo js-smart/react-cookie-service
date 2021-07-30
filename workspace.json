@@ -8,17 +8,13 @@
       "targets": {
         "build": {
           "executor": "@nrwl/web:package",
-          "outputs": [
-            "{options.outputPath}"
-          ],
+          "outputs": ["{options.outputPath}"],
           "options": {
             "outputPath": "dist/libs/react-cookie-service",
             "tsConfig": "libs/react-cookie-service/tsconfig.lib.json",
             "project": "libs/react-cookie-service/package.json",
             "entryFile": "libs/react-cookie-service/src/index.ts",
-            "external": [
-              "react/jsx-runtime"
-            ],
+            "external": ["react/jsx-runtime"],
             "rollupConfig": "@nrwl/react/plugins/bundle-rollup",
             "assets": [
               {
@@ -39,9 +35,7 @@
         },
         "test": {
           "executor": "@nrwl/jest:jest",
-          "outputs": [
-            "coverage/libs/react-cookie-service"
-          ],
+          "outputs": ["coverage/libs/react-cookie-service"],
           "options": {
             "jestConfig": "libs/react-cookie-service/jest.config.js",
             "passWithNoTests": true
@@ -56,9 +50,7 @@
       "targets": {
         "build": {
           "executor": "@nrwl/web:build",
-          "outputs": [
-            "{options.outputPath}"
-          ],
+          "outputs": ["{options.outputPath}"],
           "options": {
             "outputPath": "dist/apps/react-cookie-service-example",
             "index": "apps/react-cookie-service-example/src/index.html",

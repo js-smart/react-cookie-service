@@ -35,9 +35,7 @@
     },
     "react-cookie-service-example-e2e": {
       "tags": [],
-      "implicitDependencies": [
-        "react-cookie-service-example"
-      ]
+      "implicitDependencies": ["react-cookie-service-example"]
     }
   }
 }

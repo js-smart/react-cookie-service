@@ -5,7 +5,6 @@
  * @since 1.0.0
  */
 export default function useCookies() {
-
   /**
    * Get cookie Regular Expression
    *
@@ -52,7 +51,6 @@ export default function useCookies() {
     }
   }
 
-
   /**
    * Get cookies by name
    *
@@ -65,8 +63,12 @@ export default function useCookies() {
   function getCookie(name: string): string {
     if (check(name)) {
       name = encodeURIComponent(name);
-      const result: RegExpExecArray | null = getCookieRegExp(name).exec(document.cookie);
-      return result !== null && result[1] ? safeDecodeURIComponent(result[1]) : '';
+      const result: RegExpExecArray | null = getCookieRegExp(name).exec(
+        document.cookie
+      );
+      return result !== null && result[1]
+        ? safeDecodeURIComponent(result[1])
+        : '';
     } else {
       return '';
     }
@@ -85,7 +87,8 @@ export default function useCookies() {
     if (document.cookie && document.cookie !== '') {
       document.cookie.split(';').forEach((currentCookie) => {
         const [cookieName, cookieValue] = currentCookie.split('=');
-        cookies[safeDecodeURIComponent(cookieName.replace(/^ /, ''))] = safeDecodeURIComponent(cookieValue);
+        cookies[safeDecodeURIComponent(cookieName.replace(/^ /, ''))] =
+          safeDecodeURIComponent(cookieValue);
       });
     }
     return cookies;
@@ -105,20 +108,36 @@ export default function useCookies() {
    * @author Pavan Kumar Jadda
    * @since 1.0.0
    */
-  function setCookie(name: string, value: string, expiresOrOptions?: number | Date | any, path?: string, domain?: string, secure?: boolean, sameSite?: 'Lax' | 'None' | 'Strict'): void {
-    if (typeof expiresOrOptions === 'number' || expiresOrOptions instanceof Date || path || domain || secure || sameSite) {
+  function setCookie(
+    name: string,
+    value: string,
+    expiresOrOptions?: number | Date | any,
+    path?: string,
+    domain?: string,
+    secure?: boolean,
+    sameSite?: 'Lax' | 'None' | 'Strict'
+  ): void {
+    if (
+      typeof expiresOrOptions === 'number' ||
+      expiresOrOptions instanceof Date ||
+      path ||
+      domain ||
+      secure ||
+      sameSite
+    ) {
       const optionsBody = {
         expires: expiresOrOptions,
         path,
         domain,
         secure,
-        sameSite: sameSite || 'Lax'
+        sameSite: sameSite || 'Lax',
       };
       setCookie(name, value, optionsBody);
       return;
     }
 
-    let cookieString: string = encodeURIComponent(name) + '=' + encodeURIComponent(value) + ';';
+    let cookieString: string =
+      encodeURIComponent(name) + '=' + encodeURIComponent(value) + ';';
 
     const options = expiresOrOptions || {};
     if (options.expires) {
@@ -145,7 +164,7 @@ export default function useCookies() {
       options.secure = true;
       console.warn(
         `[ngx-cookie-service] Cookie ${name} was forced with secure flag because sameSite=None.` +
-        `More details : https://github.com/stevermeister/ngx-cookie-service/issues/86#issuecomment-597720130`
+          `More details : https://github.com/stevermeister/ngx-cookie-service/issues/86#issuecomment-597720130`
       );
     }
     if (options.secure) {
@@ -172,12 +191,22 @@ export default function useCookies() {
    * @author Pavan Kumar Jadda
    * @since 1.0.0
    */
-  function deleteCookie(name: string, path ?: string, domain ?: string, secure ?: boolean, sameSite: 'Lax' | 'None' | 'Strict' = 'Lax'): void {
+  function deleteCookie(
+    name: string,
+    path?: string,
+    domain?: string,
+    secure?: boolean,
+    sameSite: 'Lax' | 'None' | 'Strict' = 'Lax'
+  ): void {
     const cookies = document.cookie.split('; ');
     for (let c = 0; c < cookies.length; c++) {
       const d = window.location.hostname.split('.');
       while (d.length > 0) {
-        const cookieBase = encodeURIComponent(cookies[c].split(';')[0].split('=')[0]) + '=; expires=Thu, 01-Jan-1970 00:00:01 GMT; domain=' + d.join('.') + ' ;path=';
+        const cookieBase =
+          encodeURIComponent(cookies[c].split(';')[0].split('=')[0]) +
+          '=; expires=Thu, 01-Jan-1970 00:00:01 GMT; domain=' +
+          d.join('.') +
+          ' ;path=';
         const p = window.location.pathname.split('/');
         document.cookie = cookieBase + '/';
         while (p.length > 0) {
@@ -188,7 +217,13 @@ export default function useCookies() {
       }
     }
     const expiresDate = new Date('Thu, 01 Jan 1970 00:00:01 GMT');
-    setCookie(name, '', { expires: expiresDate, path, domain, secure, sameSite });
+    setCookie(name, '', {
+      expires: expiresDate,
+      path,
+      domain,
+      secure,
+      sameSite,
+    });
   }
 
   /**
@@ -218,6 +253,12 @@ export default function useCookies() {
   }
 
   //Return functions
-  return { check, getCookie, getAllCookies, setCookie, deleteCookie, deleteAllCookies };
+  return {
+    check,
+    getCookie,
+    getAllCookies,
+    setCookie,
+    deleteCookie,
+    deleteAllCookies,
+  };
 }
-
