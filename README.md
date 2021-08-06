@@ -4,7 +4,7 @@ Simple library to manage cookies in React. Implementation is similar
 to [Ngx Cookie Service](https://github.com/stevermeister/ngx-cookie-service)
 
 <p >
-   <a href="https://www.npmjs.com/@ngxsmart/alert">
+   <a href="https://www.npmjs.com/@ngxsmart/react-cookie-service">
     <img src="https://img.shields.io/npm/v/@ngxsmart/react-cookie-service.svg?logo=npm&logoColor=fff&label=NPM+package&color=limegreen" alt="Alert on npm" />
   </a>
   </p>
