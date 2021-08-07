@@ -40,6 +40,16 @@ export default function Example() {
 }
 ```
 
+
+## Supported Versions
+
+See the table below for React compatability matrix
+
+| Version | React Version 17.0.2          |
+| ------- | ------------------ |
+| 1.x.x   | :white_check_mark: |
+
+
 ## Running unit tests
 
 Run `nx test react-cookie-service` to execute the unit tests via [Jest](https://jestjs.io).
