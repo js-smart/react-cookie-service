@@ -45,9 +45,9 @@ export default function Example() {
 
 See the table below for React compatability matrix
 
-| Version | React Version 17.0.2          |
+| Version | React Version      |
 | ------- | ------------------ |
-| 1.x.x   | :white_check_mark: |
+| 1.x.x   | 17.0.2 |
 
 
 ## Running unit tests
