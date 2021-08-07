@@ -74,10 +74,10 @@ export default function Example() {
  import React, { Component } from 'react';
 import { useCookies } from '@ngxsmart/react-cookie-service';
 export default function Example() {
-  const { getAllCookie } = useCookies();
+  const { getCookie } = useCookies();
   return (
     <div>
-      <h2>{JSON.stringify(getAllCookie('test'))}</h2>
+      <h2>{JSON.stringify(getCookie('test'))}</h2>
     </div>
   );
 }
