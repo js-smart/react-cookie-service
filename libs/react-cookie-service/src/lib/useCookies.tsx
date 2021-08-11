@@ -111,71 +111,50 @@ export default function useCookies() {
   function setCookie(
     name: string,
     value: string,
-    expiresOrOptions?: number | Date | any,
+    expires?: number | Date,
     path?: string,
     domain?: string,
     secure?: boolean,
     sameSite?: 'Lax' | 'None' | 'Strict'
   ): void {
-    if (
-      typeof expiresOrOptions === 'number' ||
-      expiresOrOptions instanceof Date ||
-      path ||
-      domain ||
-      secure ||
-      sameSite
-    ) {
-      const optionsBody = {
-        expires: expiresOrOptions,
-        path,
-        domain,
-        secure,
-        sameSite: sameSite || 'Lax',
-      };
-      setCookie(name, value, optionsBody);
-      return;
-    }
-
     let cookieString: string =
       encodeURIComponent(name) + '=' + encodeURIComponent(value) + ';';
 
-    const options = expiresOrOptions || {};
-    if (options.expires) {
-      if (typeof options.expires === 'number') {
-        const dateExpires: Date = new Date(
-          new Date().getTime() + options.expires * 1000 * 60 * 60 * 24
-        );
-
-        cookieString += 'expires=' + dateExpires.toUTCString() + ';';
-      } else {
-        cookieString += 'expires=' + options.expires.toUTCString() + ';';
-      }
+    // Set cookie expiration
+    if (typeof expires === 'number') {
+      const dateExpires: Date = new Date(
+        new Date().getTime() + expires * 1000 * 60 * 60 * 24
+      );
+      cookieString += 'expires=' + dateExpires.toUTCString() + ';';
+    } else if (expires instanceof Date) {
+      cookieString += 'expires=' + expires.toUTCString() + ';';
     }
 
-    if (options.path) {
-      cookieString += 'path=' + options.path + ';';
+    // Set cookie path
+    if (path) {
+      cookieString += 'path=' + path + ';';
     }
 
-    if (options.domain) {
-      cookieString += 'domain=' + options.domain + ';';
+    // Set cookie domain
+    if (domain) {
+      cookieString += 'domain=' + domain + ';';
     }
 
-    if (options.secure === false && options.sameSite === 'None') {
-      options.secure = true;
+    // When sameSite is `None` and secure flag should be `true`
+    if (secure === false && sameSite === 'None') {
+      secure = true;
       console.warn(
-        `[ngx-cookie-service] Cookie ${name} was forced with secure flag because sameSite=None.` +
-          `More details : https://github.com/stevermeister/ngx-cookie-service/issues/86#issuecomment-597720130`
+        `[react-cookie-service] Cookie ${name} was forced with secure flag because sameSite=None.`
       );
     }
-    if (options.secure) {
+
+    // If `secure` flag is `true`, then set cookie secure flag
+    if (secure) {
       cookieString += 'secure;';
     }
 
-    if (!options.sameSite) {
-      options.sameSite = 'Lax';
-    }
-
-    cookieString += 'sameSite=' + options.sameSite + ';';
+    // Set cookie sameSite attribute
+    cookieString += 'sameSite=' + (sameSite ?? 'Lax') + ';';
     document.cookie = cookieString;
   }
 
