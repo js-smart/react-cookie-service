@@ -196,13 +196,7 @@ export default function useCookies() {
       }
     }
     const expiresDate = new Date('Thu, 01 Jan 1970 00:00:01 GMT');
-    setCookie(name, '', 
-       expiresDate,
-      path,
-      domain,
-      secure,
-      sameSite,
-    );
+    setCookie(name, '', expiresDate, path, domain, secure, sameSite);
   }
 
   /**
