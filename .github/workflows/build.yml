@@ -12,6 +12,6 @@ jobs:
       - name: Install Dependencies
         run: npm install
       - name: Run Tests
-        run: nx test  react-cookie-service
+        run: npm test react-cookie-service
       - name: Build project
         run: npm run  build  react-cookie-service
