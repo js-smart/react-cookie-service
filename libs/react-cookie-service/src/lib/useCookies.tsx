@@ -52,10 +52,10 @@ export default function useCookies() {
   }
 
   /**
-   * Get cookies by name
+   * Get cookie value by name
    *
    * @param name Cookie name
-   * @returns property value
+   * @returns cookie value
    *
    * @author Pavan Kumar Jadda
    * @since 1.0.0
@@ -99,62 +99,67 @@ export default function useCookies() {
    *
    * @param name     Cookie name
    * @param value    Cookie value
-   * @param expires Cookie expiration in Number of Days or Date
-   * @param path  Cookie path. Defaults to '/'
-   * @param domain  Cookie domain
-   * @param secure  Secure flag
-   * @param sameSite  OWASP same site token `Lax`, `None`, or `Strict`. Defaults to `Lax`
+   * @param options  Cookie Options
    *
+   * <pre>
+   * expires Cookie expiration in Number of Days or Date
+   * path  Cookie path. Defaults to '/'
+   * domain  Cookie domain
+   * secure  Secure flag
+   * sameSite  OWASP same site token `Lax`, `None`, or `Strict`. Defaults to `Lax`
+   * </pre>
    * @author Pavan Kumar Jadda
    * @since 1.0.0
    */
   function setCookie(
     name: string,
     value: string,
-    expires?: number | Date,
-    path?: string,
-    domain?: string,
-    secure?: boolean,
-    sameSite?: 'Lax' | 'None' | 'Strict'
+    options?: {
+      expires?: number | Date;
+      path?: string;
+      domain?: string;
+      secure?: boolean;
+      sameSite?: 'Lax' | 'None' | 'Strict';
+    }
   ): void {
     let cookieString: string =
       encodeURIComponent(name) + '=' + encodeURIComponent(value) + ';';
 
     // Set cookie expiration
-    if (typeof expires === 'number') {
+    if (typeof options?.expires === 'number') {
       const dateExpires: Date = new Date(
-        new Date().getTime() + expires * 1000 * 60 * 60 * 24
+        new Date().getTime() + options?.expires * 1000 * 60 * 60 * 24
       );
       cookieString += 'expires=' + dateExpires.toUTCString() + ';';
-    } else if (expires instanceof Date) {
-      cookieString += 'expires=' + expires.toUTCString() + ';';
+    } else if (options?.expires instanceof Date) {
+      cookieString += 'expires=' + options?.expires.toUTCString() + ';';
     }
 
     // Set cookie path
-    if (path) {
-      cookieString += 'path=' + path + ';';
+    if (options?.path) {
+      cookieString += 'path=' + options?.path + ';';
     }
 
     // Set cookie domain
-    if (domain) {
-      cookieString += 'domain=' + domain + ';';
+    if (options?.domain) {
+      cookieString += 'domain=' + options?.domain + ';';
     }
 
     // When sameSite is `None` and secure flag should be `true`
-    if (secure === false && sameSite === 'None') {
-      secure = true;
+    if (options?.secure === false && options?.sameSite === 'None') {
+      options.secure = true;
       console.warn(
         `[react-cookie-service] Cookie ${name} was forced with secure flag because sameSite=None.`
       );
     }
 
     // If `secure` flag is `true`, then set cookie secure flag
-    if (secure) {
+    if (options?.secure) {
       cookieString += 'secure;';
     }
 
     // Set cookie sameSite attribute
-    cookieString += 'sameSite=' + (sameSite ?? 'Lax') + ';';
+    cookieString += 'sameSite=' + (options?.sameSite ?? 'Lax') + ';';
     document.cookie = cookieString;
   }
 
@@ -196,7 +201,7 @@ export default function useCookies() {
       }
     }
     const expiresDate = new Date('Thu, 01 Jan 1970 00:00:01 GMT');
-    setCookie(name, '', expiresDate, path, domain, secure, sameSite);
+    setCookie(name, '', { expires: expiresDate, path: path, domain: domain, secure: secure, sameSite: sameSite });
   }
 
   /**
@@ -232,6 +237,6 @@ export default function useCookies() {
     getAllCookies,
     setCookie,
     deleteCookie,
-    deleteAllCookies,
+    deleteAllCookies
   };
 }
