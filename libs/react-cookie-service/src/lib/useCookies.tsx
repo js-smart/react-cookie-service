@@ -99,7 +99,7 @@ export default function useCookies() {
    *
    * @param name     Cookie name
    * @param value    Cookie value
-   * @param expiresOrOptions  Number of days until the cookies expires or an actual `Date`
+   * @param expires Cookie expiration in Number of Days or Date
    * @param path  Cookie path. Defaults to '/'
    * @param domain  Cookie domain
    * @param secure  Secure flag
@@ -216,7 +216,7 @@ export default function useCookies() {
     secure?: boolean,
     sameSite: 'Lax' | 'None' | 'Strict' = 'Lax'
   ): void {
-    const cookies: any = getAllCookies();
+    const cookies = getAllCookies();
     for (const cookieName in cookies) {
       /* eslint-disable */
       if (cookies.hasOwnProperty(cookieName)) {
