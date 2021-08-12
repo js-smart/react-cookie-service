@@ -1,6 +1,6 @@
 {
   "name": "react-cookie-service",
-  "version": "1.0.4",
+  "version": "1.0.7",
   "license": "MIT",
   "scripts": {
     "nx": "nx",

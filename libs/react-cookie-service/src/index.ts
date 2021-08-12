@@ -1,1 +1,1 @@
-export * from './lib/useCookies';
+export { default as useCookies } from './lib/useCookies';
