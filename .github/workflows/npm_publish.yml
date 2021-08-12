@@ -2,8 +2,8 @@ name: Publish to NPM
 on:
   push:
     ### Publish on new tag release
-    #tags:
-    # - v*
+    tags:
+      - v*
 jobs:
   publish:
     runs-on: ubuntu-latest
@@ -16,6 +16,8 @@ jobs:
         run: npm install
       - name: Build project
         run: npm run  build  react-cookie-service
+      - name: Run Tests
+        run: nx test  react-cookie-service
       - name: Publish to NPM
         uses: JS-DevTools/npm-publish@v1
         with:
