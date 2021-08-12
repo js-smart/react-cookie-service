@@ -17,7 +17,7 @@ jobs:
       - name: Build project
         run: npm run  build  react-cookie-service
       - name: Run Tests
-        run: nx test  react-cookie-service
+        run: npm test react-cookie-service
       - name: Publish to NPM
         uses: JS-DevTools/npm-publish@v1
         with:
