@@ -1,5 +1,5 @@
-import { useCookies } from '@ngxsmart/react-cookie-service';
 import { v4 as uuidv4 } from 'uuid';
+import useCookies from './useCookies';
 
 describe('useCookies library tests', () => {
   const {
