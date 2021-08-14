@@ -7,9 +7,11 @@ to [Ngx Cookie Service](https://github.com/stevermeister/ngx-cookie-service)
    <a href="https://www.npmjs.com/@ngxsmart/react-cookie-service">
     <img src="https://img.shields.io/npm/v/@ngxsmart/react-cookie-service.svg?logo=npm&logoColor=fff&label=NPM+package&color=limegreen" alt="Alert on npm" />
   </a>
-  </p>
   
-  ![main](https://github.com/github/docs/actions/workflows/main.yml/badge.svg?branch=main)
+  [![Build Project](https://github.com/ngxsmart/react-cookie-service/actions/workflows/build.yml/badge.svg)](https://github.com/ngxsmart/react-cookie-service/actions/workflows/build.yml)
+</p>
+  
+
 
 ## Install
 
