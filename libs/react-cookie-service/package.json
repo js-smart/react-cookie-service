@@ -1,10 +1,10 @@
 {
-  "name": "@ngxsmart/react-cookie-service",
+  "name": "@react-smart/react-cookie-service",
   "version": "1.0.7",
   "private": false,
   "repository": {
     "type": "git",
-    "url": "https://github.com/ngxsmart/react-cookie-service.git"
+    "url": "https://github.com/react-smart/react-cookie-service.git"
   },
   "author": {
     "name": "Pavan Kumar Jadda",
@@ -21,7 +21,7 @@
   ],
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/ngxsmart/react-cookie-service.git/issues"
+    "url": "https://github.com/react-smart/react-cookie-service.git/issues"
   },
   "peerDependencies": {
     "react": "^17.0.2"
