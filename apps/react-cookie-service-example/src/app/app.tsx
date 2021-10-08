@@ -1,4 +1,4 @@
-import { useCookies } from '@ngxsmart/react-cookie-service';
+import { useCookies } from '@react-smart/react-cookie-service';
 
 export function App() {
   const { getAllCookies } = useCookies();

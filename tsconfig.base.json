@@ -15,7 +15,7 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "@ngxsmart/react-cookie-service": [
+      "@react-smart/react-cookie-service": [
         "libs/react-cookie-service/src/index.ts"
       ]
     }

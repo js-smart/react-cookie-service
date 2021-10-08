@@ -4,11 +4,11 @@ Simple library to manage cookies in React. Implementation is similar
 to [Ngx Cookie Service](https://github.com/stevermeister/ngx-cookie-service)
 
 <p >
-   <a href="https://www.npmjs.com/@ngxsmart/react-cookie-service">
-    <img src="https://img.shields.io/npm/v/@ngxsmart/react-cookie-service.svg?logo=npm&logoColor=fff&label=NPM+package&color=limegreen" alt="Alert on npm" />
+   <a href="https://www.npmjs.com/@react-smart/react-cookie-service">
+    <img src="https://img.shields.io/npm/v/@react-smart/react-cookie-service.svg?logo=npm&logoColor=fff&label=NPM+package&color=limegreen" alt="Alert on npm" />
   </a>
   
-  [![Build Project](https://github.com/ngxsmart/react-cookie-service/actions/workflows/build.yml/badge.svg)](https://github.com/ngxsmart/react-cookie-service/actions/workflows/build.yml)
+  [![Build Project](https://github.com/react-smart/react-cookie-service/actions/workflows/build.yml/badge.svg)](https://github.com/react-smart/react-cookie-service/actions/workflows/build.yml)
 </p>
   
 
@@ -16,14 +16,14 @@ to [Ngx Cookie Service](https://github.com/stevermeister/ngx-cookie-service)
 ## Install
 
 ```bash
-npm install --save @ngxsmart/react-cookie-service
+npm install --save @react-smart/react-cookie-service
 ```
 
 ## Usage
 
 ```tsx
 import React, { Component } from 'react';
-import { useCookies } from '@ngxsmart/react-cookie-service';
+import { useCookies } from '@react-smart/react-cookie-service';
 
 export default function Example() {
   const {
@@ -58,7 +58,7 @@ See the table below for React compatability matrix
 
 ```
 import React, { Component } from 'react';
-import { useCookies } from '@ngxsmart/react-cookie-service';
+import { useCookies } from '@react-smart/react-cookie-service';
 export default function Example() {
   const { getAllCookies } = useCookies();
   return (
@@ -75,7 +75,7 @@ export default function Example() {
 
 ```
 import React, { Component } from 'react';
-import { useCookies } from '@ngxsmart/react-cookie-service';
+import { useCookies } from '@react-smart/react-cookie-service';
 export default function Example() {
  const { getCookie } = useCookies();
  return (
@@ -93,7 +93,7 @@ export default function Example() {
 
 ```
 import React, { Component } from 'react';
-import { useCookies } from '@ngxsmart/react-cookie-service';
+import { useCookies } from '@react-smart/react-cookie-service';
 export default function Example() {
   const { check } = useCookies();
   return (
@@ -141,7 +141,7 @@ Delete cookies using `deleteAllCookies` hook and single cookie using `deleteCook
 
 ```
 import React, { Component } from 'react';
-import { useCookies } from '@ngxsmart/react-cookie-service';
+import { useCookies } from '@react-smart/react-cookie-service';
 export default function Example() {
   const { deleteCookie, deleteAllCookies } = useCookies();
 useEffect(()=>
