@@ -15,6 +15,9 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
+      "@react-smart/esm-cookie-service": [
+        "libs/esm-cookie-service/src/index.ts"
+      ],
       "@react-smart/react-cookie-service": [
         "libs/react-cookie-service/src/index.ts"
       ]

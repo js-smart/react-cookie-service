@@ -1,6 +1,46 @@
 {
   "version": 2,
   "projects": {
+    "esm-cookie-service": {
+      "root": "libs/esm-cookie-service",
+      "sourceRoot": "libs/esm-cookie-service/src",
+      "projectType": "library",
+      "targets": {
+        "build": {
+          "executor": "@nrwl/web:package",
+          "outputs": ["{options.outputPath}"],
+          "options": {
+            "outputPath": "dist/libs/esm-cookie-service",
+            "tsConfig": "libs/esm-cookie-service/tsconfig.lib.json",
+            "project": "libs/esm-cookie-service/package.json",
+            "entryFile": "libs/esm-cookie-service/src/index.ts",
+            "external": ["react/jsx-runtime"],
+            "rollupConfig": "@nrwl/react/plugins/bundle-rollup",
+            "assets": [
+              {
+                "glob": "libs/esm-cookie-service/README.md",
+                "input": ".",
+                "output": "."
+              }
+            ]
+          }
+        },
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/esm-cookie-service/**/*.{ts,tsx,js,jsx}"]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/esm-cookie-service"],
+          "options": {
+            "jestConfig": "libs/esm-cookie-service/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
     "react-cookie-service": {
       "root": "libs/react-cookie-service",
       "sourceRoot": "libs/react-cookie-service/src",
