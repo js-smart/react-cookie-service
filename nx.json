@@ -27,9 +27,6 @@
     ]
   },
   "projects": {
-    "esm-cookie-service": {
-      "tags": []
-    },
     "js-cookie-service": {
       "tags": []
     },
