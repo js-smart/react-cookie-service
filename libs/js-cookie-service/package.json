@@ -1,5 +1,5 @@
 {
-  "name": "@react-smart/react-cookie-service",
+  "name": "js-cookie-service",
   "version": "1.2.0",
   "private": false,
   "repository": {
@@ -11,19 +11,15 @@
     "email": "contactdeveloperpj@gmail.com"
   },
   "keywords": [
-    "react",
-    "react17",
-    "react-hooks",
+    "js-cookie-service",
+    "esm-cookie-service",
+    "javascript-cookies",
     "typescript",
-    "react-cookie",
-    "react-cookies",
-    "react-cookie-service"
+    "js-cookie",
+    "cookies"
   ],
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/react-smart/react-cookie-service.git/issues"
-  },
-  "peerDependencies": {
-    "react": "^17.0.2"
   }
 }

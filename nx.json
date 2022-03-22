@@ -30,6 +30,9 @@
     "esm-cookie-service": {
       "tags": []
     },
+    "js-cookie-service": {
+      "tags": []
+    },
     "react-cookie-service": {
       "tags": []
     },
