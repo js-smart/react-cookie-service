@@ -45,9 +45,9 @@ export default function Example() {
 See the table below for React compatability matrix
 
 | Version | React Version |
-| ------- | ------------- |
+|---------|---------------|
+| 2.x.x   | 18.0.0        |
 | 1.x.x   | 17.0.2        |
-
 # API
 
 ### getAllCookies
