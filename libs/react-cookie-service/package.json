@@ -13,17 +13,21 @@
   "keywords": [
     "react",
     "react17",
+    "react18",
     "react-hooks",
     "typescript",
+    "cookie",
+    "js-cookie",
     "react-cookie",
     "react-cookies",
-    "react-cookie-service"
+    "react-cookie-service",
+    "js-cookie-service"
   ],
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/react-smart/react-cookie-service.git/issues"
   },
   "peerDependencies": {
-    "react": "^17.0.2"
+    "react": "^18.0.0"
   }
 }
