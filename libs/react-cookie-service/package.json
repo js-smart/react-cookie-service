@@ -1,6 +1,6 @@
 {
   "name": "@react-smart/react-cookie-service",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "private": false,
   "repository": {
     "type": "git",
@@ -28,6 +28,6 @@
     "url": "https://github.com/react-smart/react-cookie-service.git/issues"
   },
   "peerDependencies": {
-    "react": "^18.0.0"
+    "react": "^16.8.0 || ^17.0.0 || ^18.0.0"
   }
 }
