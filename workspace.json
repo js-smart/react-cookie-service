@@ -7,14 +7,18 @@
       "projectType": "library",
       "targets": {
         "build": {
-          "executor": "@nrwl/web:package",
-          "outputs": ["{options.outputPath}"],
+          "executor": "@nrwl/web:rollup",
+          "outputs": [
+            "{options.outputPath}"
+          ],
           "options": {
             "outputPath": "dist/libs/js-cookie-service",
             "tsConfig": "libs/js-cookie-service/tsconfig.lib.json",
             "project": "libs/js-cookie-service/package.json",
             "entryFile": "libs/js-cookie-service/src/index.ts",
-            "external": ["react/jsx-runtime"],
+            "external": [
+              "react/jsx-runtime"
+            ],
             "rollupConfig": "@nrwl/react/plugins/bundle-rollup",
             "assets": [
               {
@@ -28,18 +32,26 @@
         "lint": {
           "executor": "@nrwl/linter:eslint",
           "options": {
-            "lintFilePatterns": ["libs/js-cookie-service/**/*.{ts,tsx,js,jsx}"]
-          }
+            "lintFilePatterns": [
+              "libs/js-cookie-service/**/*.{ts,tsx,js,jsx}"
+            ]
+          },
+          "outputs": [
+            "{options.outputFile}"
+          ]
         },
         "test": {
           "executor": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/js-cookie-service"],
+          "outputs": [
+            "coverage/libs/js-cookie-service"
+          ],
           "options": {
-            "jestConfig": "libs/js-cookie-service/jest.config.js",
+            "jestConfig": "libs/js-cookie-service/jest.config.ts",
             "passWithNoTests": true
           }
         }
-      }
+      },
+      "tags": []
     },
     "react-cookie-service": {
       "root": "libs/react-cookie-service",
@@ -47,14 +59,18 @@
       "projectType": "library",
       "targets": {
         "build": {
-          "executor": "@nrwl/web:package",
-          "outputs": ["{options.outputPath}"],
+          "executor": "@nrwl/web:rollup",
+          "outputs": [
+            "{options.outputPath}"
+          ],
           "options": {
             "outputPath": "dist/libs/react-cookie-service",
             "tsConfig": "libs/react-cookie-service/tsconfig.lib.json",
             "project": "libs/react-cookie-service/package.json",
             "entryFile": "libs/react-cookie-service/src/index.ts",
-            "external": ["react/jsx-runtime"],
+            "external": [
+              "react/jsx-runtime"
+            ],
             "rollupConfig": "@nrwl/react/plugins/bundle-rollup",
             "assets": [
               {
@@ -71,17 +87,23 @@
             "lintFilePatterns": [
               "libs/react-cookie-service/**/*.{ts,tsx,js,jsx}"
             ]
-          }
+          },
+          "outputs": [
+            "{options.outputFile}"
+          ]
         },
         "test": {
           "executor": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/react-cookie-service"],
+          "outputs": [
+            "coverage/libs/react-cookie-service"
+          ],
           "options": {
-            "jestConfig": "libs/react-cookie-service/jest.config.js",
+            "jestConfig": "libs/react-cookie-service/jest.config.ts",
             "passWithNoTests": true
           }
         }
-      }
+      },
+      "tags": []
     },
     "react-cookie-service-example": {
       "root": "apps/react-cookie-service-example",
@@ -89,8 +111,10 @@
       "projectType": "application",
       "targets": {
         "build": {
-          "executor": "@nrwl/web:build",
-          "outputs": ["{options.outputPath}"],
+          "executor": "@nrwl/web:webpack",
+          "outputs": [
+            "{options.outputPath}"
+          ],
           "options": {
             "outputPath": "dist/apps/react-cookie-service-example",
             "index": "apps/react-cookie-service-example/src/index.html",
@@ -140,8 +164,12 @@
             "production": {
               "buildTarget": "react-cookie-service-example:build:production",
               "hmr": false
+            },
+            "development": {
+              "buildTarget": "react-cookie-service-example:build:development"
             }
-          }
+          },
+          "defaultConfiguration": "development"
         },
         "lint": {
           "executor": "@nrwl/linter:eslint",
@@ -149,17 +177,23 @@
             "lintFilePatterns": [
               "apps/react-cookie-service-example/**/*.{ts,tsx,js,jsx}"
             ]
-          }
+          },
+          "outputs": [
+            "{options.outputFile}"
+          ]
         },
         "test": {
           "executor": "@nrwl/jest:jest",
-          "outputs": ["coverage/apps/react-cookie-service-example"],
+          "outputs": [
+            "coverage/apps/react-cookie-service-example"
+          ],
           "options": {
-            "jestConfig": "apps/react-cookie-service-example/jest.config.js",
+            "jestConfig": "apps/react-cookie-service-example/jest.config.ts",
             "passWithNoTests": true
           }
         }
-      }
+      },
+      "tags": []
     },
     "react-cookie-service-example-e2e": {
       "root": "apps/react-cookie-service-example-e2e",
@@ -185,29 +219,16 @@
             "lintFilePatterns": [
               "apps/react-cookie-service-example-e2e/**/*.{js,ts}"
             ]
-          }
+          },
+          "outputs": [
+            "{options.outputFile}"
+          ]
         }
-      }
-    }
-  },
-  "cli": {
-    "defaultCollection": "@nrwl/react"
-  },
-  "generators": {
-    "@nrwl/react": {
-      "application": {
-        "style": "scss",
-        "linter": "eslint",
-        "babel": true
       },
-      "component": {
-        "style": "scss"
-      },
-      "library": {
-        "style": "scss",
-        "linter": "eslint"
-      }
+      "tags": [],
+      "implicitDependencies": [
+        "react-cookie-service-example"
+      ]
     }
-  },
-  "defaultProject": "react-cookie-service-example"
+  }
 }

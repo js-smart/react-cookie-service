@@ -12,9 +12,16 @@
   },
   "tasksRunnerOptions": {
     "default": {
-      "runner": "@nrwl/workspace/tasks-runners/default",
+      "runner": "@nrwl/nx-cloud",
       "options": {
-        "cacheableOperations": ["build", "lint", "test", "e2e"]
+        "cacheableOperations": [
+          "build",
+          "lint",
+          "test",
+          "e2e"
+        ],
+        "accessToken": "MDRkOTUyZGQtYzk2Yy00ZjM3LWEwMTktNTllY2Q3MzI2YWNhfHJlYWQtd3JpdGU=",
+        "parallel": 1
       }
     }
   },
@@ -26,19 +33,24 @@
       }
     ]
   },
-  "projects": {
-    "js-cookie-service": {
-      "tags": []
-    },
-    "react-cookie-service": {
-      "tags": []
-    },
-    "react-cookie-service-example": {
-      "tags": []
-    },
-    "react-cookie-service-example-e2e": {
-      "tags": [],
-      "implicitDependencies": ["react-cookie-service-example"]
+  "cli": {
+    "defaultCollection": "@nrwl/react"
+  },
+  "generators": {
+    "@nrwl/react": {
+      "application": {
+        "style": "scss",
+        "linter": "eslint",
+        "babel": true
+      },
+      "component": {
+        "style": "scss"
+      },
+      "library": {
+        "style": "scss",
+        "linter": "eslint"
+      }
     }
-  }
+  },
+  "defaultProject": "react-cookie-service-example"
 }
