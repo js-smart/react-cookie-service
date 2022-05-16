@@ -1,3 +1,13 @@
+export type SameSite = "Lax" | "None" | "Strict";
+
+export interface CookieOptions {
+  expires?: number | Date;
+  path?: string;
+  domain?: string;
+  secure?: boolean;
+  sameSite?: SameSite;
+}
+
 /**
  * A hook to get, save, update and delete browser cookies through JavaScript
  *
@@ -15,7 +25,7 @@ export default function useCookies() {
    * @since 1.0.0
    */
   function getCookieRegExp(name: string): RegExp {
-    return new RegExp('(?:^' + name + '|;\\s*' + name + ')=(.*?)(?:;|$)', 'g');
+    return new RegExp("(?:^" + name + "|;\\s*" + name + ")=(.*?)(?:;|$)", "g");
   }
 
   /**
@@ -63,14 +73,10 @@ export default function useCookies() {
   function getCookie(name: string): string {
     if (check(name)) {
       name = encodeURIComponent(name);
-      const result: RegExpExecArray | null = getCookieRegExp(name).exec(
-        document.cookie
-      );
-      return result !== null && result[1]
-        ? safeDecodeURIComponent(result[1])
-        : '';
+      const result: RegExpExecArray | null = getCookieRegExp(name).exec(document.cookie);
+      return result !== null && result[1] ? safeDecodeURIComponent(result[1]) : "";
     } else {
-      return '';
+      return "";
     }
   }
 
@@ -84,11 +90,10 @@ export default function useCookies() {
    */
   function getAllCookies(): { [key: string]: string } {
     const cookies: { [key: string]: string } = {};
-    if (document.cookie && document.cookie !== '') {
-      document.cookie.split(';').forEach((currentCookie) => {
-        const [cookieName, cookieValue] = currentCookie.split('=');
-        cookies[safeDecodeURIComponent(cookieName.replace(/^ /, ''))] =
-          safeDecodeURIComponent(cookieValue);
+    if (document.cookie && document.cookie !== "") {
+      document.cookie.split(";").forEach((currentCookie) => {
+        const [cookieName, cookieValue] = currentCookie.split("=");
+        cookies[safeDecodeURIComponent(cookieName.replace(/^ /, ""))] = safeDecodeURIComponent(cookieValue);
       });
     }
     return cookies;
@@ -111,55 +116,40 @@ export default function useCookies() {
    * @author Pavan Kumar Jadda
    * @since 1.0.0
    */
-  function setCookie(
-    name: string,
-    value: string,
-    options?: {
-      expires?: number | Date;
-      path?: string;
-      domain?: string;
-      secure?: boolean;
-      sameSite?: 'Lax' | 'None' | 'Strict';
-    }
-  ): void {
-    let cookieString: string =
-      encodeURIComponent(name) + '=' + encodeURIComponent(value) + ';';
+  function setCookie(name: string, value: string, options?: CookieOptions): void {
+    let cookieString: string = encodeURIComponent(name) + "=" + encodeURIComponent(value) + ";";
 
     // Set cookie expiration
-    if (typeof options?.expires === 'number') {
-      const dateExpires: Date = new Date(
-        new Date().getTime() + options?.expires * 1000 * 60 * 60 * 24
-      );
-      cookieString += 'expires=' + dateExpires.toUTCString() + ';';
+    if (typeof options?.expires === "number") {
+      const dateExpires: Date = new Date(new Date().getTime() + options?.expires * 1000 * 60 * 60 * 24);
+      cookieString += "expires=" + dateExpires.toUTCString() + ";";
     } else if (options?.expires instanceof Date) {
-      cookieString += 'expires=' + options?.expires.toUTCString() + ';';
+      cookieString += "expires=" + options?.expires.toUTCString() + ";";
     }
 
     // Set cookie path
     if (options?.path) {
-      cookieString += 'path=' + options?.path + ';';
+      cookieString += "path=" + options?.path + ";";
     }
 
     // Set cookie domain
     if (options?.domain) {
-      cookieString += 'domain=' + options?.domain + ';';
+      cookieString += "domain=" + options?.domain + ";";
     }
 
     // When sameSite is `None` and secure flag should be `true`
-    if (options?.secure === false && options?.sameSite === 'None') {
+    if (options?.secure === false && options?.sameSite === "None") {
       options.secure = true;
-      console.warn(
-        `[react-cookie-service] Cookie ${name} was forced with secure flag because sameSite=None.`
-      );
+      console.warn(`[react-cookie-service] Cookie ${name} was forced with secure flag because sameSite=None.`);
     }
 
     // If `secure` flag is `true`, then set cookie secure flag
     if (options?.secure) {
-      cookieString += 'secure;';
+      cookieString += "secure;";
     }
 
     // Set cookie sameSite attribute
-    cookieString += 'sameSite=' + (options?.sameSite ?? 'Lax') + ';';
+    cookieString += "sameSite=" + (options?.sameSite ?? "Lax") + ";";
     document.cookie = cookieString;
   }
 
@@ -177,31 +167,31 @@ export default function useCookies() {
    */
   function deleteCookie(
     name: string,
-    path?: string,
-    domain?: string,
-    secure?: boolean,
-    sameSite: 'Lax' | 'None' | 'Strict' = 'Lax'
+    path?: CookieOptions["path"],
+    domain?: CookieOptions["domain"],
+    secure?: CookieOptions["secure"],
+    sameSite: SameSite = "Lax"
   ): void {
-    const cookies = document.cookie.split('; ');
+    const cookies = document.cookie.split("; ");
     for (let c = 0; c < cookies.length; c++) {
-      const d = window.location.hostname.split('.');
+      const d = window.location.hostname.split(".");
       while (d.length > 0) {
         const cookieBase =
-          encodeURIComponent(cookies[c].split(';')[0].split('=')[0]) +
-          '=; expires=Thu, 01-Jan-1970 00:00:01 GMT; domain=' +
-          d.join('.') +
-          ' ;path=';
-        const p = window.location.pathname.split('/');
-        document.cookie = cookieBase + '/';
+          encodeURIComponent(cookies[c].split(";")[0].split("=")[0]) +
+          "=; expires=Thu, 01-Jan-1970 00:00:01 GMT; domain=" +
+          d.join(".") +
+          " ;path=";
+        const p = window.location.pathname.split("/");
+        document.cookie = cookieBase + "/";
         while (p.length > 0) {
-          document.cookie = cookieBase + p.join('/');
+          document.cookie = cookieBase + p.join("/");
           p.pop();
         }
         d.shift();
       }
     }
-    const expiresDate = new Date('Thu, 01 Jan 1970 00:00:01 GMT');
-    setCookie(name, '', { expires: expiresDate, path: path, domain: domain, secure: secure, sameSite: sameSite });
+    const expiresDate = new Date("Thu, 01 Jan 1970 00:00:01 GMT");
+    setCookie(name, "", { expires: expiresDate, path: path, domain: domain, secure: secure, sameSite: sameSite });
   }
 
   /**
@@ -216,10 +206,10 @@ export default function useCookies() {
    * @since 1.0.0
    */
   function deleteAllCookies(
-    path?: string,
-    domain?: string,
-    secure?: boolean,
-    sameSite: 'Lax' | 'None' | 'Strict' = 'Lax'
+    path?: CookieOptions["path"],
+    domain?: CookieOptions["domain"],
+    secure?: CookieOptions["secure"],
+    sameSite: SameSite = "Lax"
   ): void {
     const cookies = getAllCookies();
     for (const cookieName in cookies) {
