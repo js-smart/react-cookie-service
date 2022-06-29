@@ -8,7 +8,7 @@ to [Ngx Cookie Service](https://github.com/stevermeister/ngx-cookie-service)
     <img src="https://img.shields.io/npm/v/js-cookie-service.svg?logo=npm&logoColor=fff&label=NPM+package&color=limegreen" alt="Alert on npm" />
   </a>
 
-[![Build Project](https://github.com/react-smart/js-cookie-service/actions/workflows/build.yml/badge.svg)](https://github.com/react-smart/js-cookie-service/actions/workflows/build.yml)
+[![Build Project](https://github.com/js-smart/js-cookie-service/actions/workflows/build.yml/badge.svg)](https://github.com/js-smart/js-cookie-service/actions/workflows/build.yml)
 </p>
 
 
