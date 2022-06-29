@@ -1,5 +1,5 @@
 import { v4 as uuidv4 } from 'uuid';
-import { check, deleteAllCookies, deleteCookie, getAllCookies, getCookie, setCookie } from 'js-cookie-service';
+import { check, deleteAllCookies, deleteCookie, getAllCookies, getCookie, setCookie } from '@js-smart/js-cookie-service';
 
 
 describe('JSCookieService', () => {
