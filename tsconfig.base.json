@@ -15,8 +15,8 @@
 		"skipDefaultLibCheck": true,
 		"baseUrl": ".",
 		"paths": {
-			"@js-smart/react-cookie-service": ["libs/react-cookie-service/src/index.ts"],
-			"@js-smart/js-cookie-service": ["libs/js-cookie-service/src/index.ts"]
+			"@js-smart/js-cookie-service": ["libs/js-cookie-service/src/index.ts"],
+			"@js-smart/react-cookie-service": ["libs/react-cookie-service/src/index.ts"]
 		}
 	},
 	"exclude": ["node_modules", "tmp"]
