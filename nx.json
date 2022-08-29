@@ -1,46 +1,53 @@
 {
-	"npmScope": "pj",
-	"affected": {
-		"defaultBase": "master"
-	},
-	"implicitDependencies": {
-		"package.json": {
-			"dependencies": "*",
-			"devDependencies": "*"
-		},
-		".eslintrc.json": "*"
-	},
-	"tasksRunnerOptions": {
-		"default": {
-			"runner": "@nrwl/nx-cloud",
-			"options": {
-				"cacheableOperations": ["build", "lint", "test", "e2e"],
-				"accessToken": "MDRkOTUyZGQtYzk2Yy00ZjM3LWEwMTktNTllY2Q3MzI2YWNhfHJlYWQtd3JpdGU=",
-				"parallel": 1
-			}
-		}
-	},
-	"generators": {
-		"@nrwl/react": {
-			"application": {
-				"style": "scss",
-				"linter": "eslint",
-				"babel": true
-			},
-			"component": {
-				"style": "scss"
-			},
-			"library": {
-				"style": "scss",
-				"linter": "eslint"
-			}
-		}
-	},
-	"defaultProject": "react-cookie-service-example",
-	"$schema": "./node_modules/nx/schemas/nx-schema.json",
-	"targetDefaults": {
-		"build": {
-			"dependsOn": ["^build"]
-		}
-	}
+  "npmScope": "pj",
+  "affected": {
+    "defaultBase": "master"
+  },
+  "implicitDependencies": {
+    "package.json": {
+      "dependencies": "*",
+      "devDependencies": "*"
+    },
+    ".eslintrc.json": "*"
+  },
+  "tasksRunnerOptions": {
+    "default": {
+      "runner": "@nrwl/nx-cloud",
+      "options": {
+        "cacheableOperations": [
+          "build",
+          "lint",
+          "test",
+          "e2e"
+        ],
+        "accessToken": "Yjg2MmE5ZTMtMDk5Ni00Y2M0LTg0NjUtYTBiMGI5ZThhZDU1fHJlYWQtd3JpdGU=",
+        "parallel": 1
+      }
+    }
+  },
+  "generators": {
+    "@nrwl/react": {
+      "application": {
+        "style": "scss",
+        "linter": "eslint",
+        "babel": true
+      },
+      "component": {
+        "style": "scss"
+      },
+      "library": {
+        "style": "scss",
+        "linter": "eslint"
+      }
+    }
+  },
+  "defaultProject": "react-cookie-service-example",
+  "$schema": "./node_modules/nx/schemas/nx-schema.json",
+  "targetDefaults": {
+    "build": {
+      "dependsOn": [
+        "^build"
+      ]
+    }
+  }
 }
