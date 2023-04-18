@@ -1,0 +1,43 @@
+{
+	"name": "js-cookie-service",
+	"$schema": "../../node_modules/nx/schemas/project-schema.json",
+	"sourceRoot": "libs/js-cookie-service/src",
+	"projectType": "library",
+	"targets": {
+		"build": {
+			"executor": "@nrwl/rollup:rollup",
+			"outputs": ["{options.outputPath}"],
+			"options": {
+				"outputPath": "dist/libs/js-cookie-service",
+				"tsConfig": "libs/js-cookie-service/tsconfig.lib.json",
+				"project": "libs/js-cookie-service/package.json",
+				"entryFile": "libs/js-cookie-service/src/index.ts",
+				"external": ["react/jsx-runtime"],
+				"rollupConfig": "@nrwl/react/plugins/bundle-rollup",
+				"assets": [
+					{
+						"glob": "libs/js-cookie-service/README.md",
+						"input": ".",
+						"output": "."
+					}
+				]
+			}
+		},
+		"lint": {
+			"executor": "@nrwl/linter:eslint",
+			"options": {
+				"lintFilePatterns": ["libs/js-cookie-service/**/*.{ts,tsx,js,jsx}"]
+			},
+			"outputs": ["{options.outputFile}"]
+		},
+		"test": {
+			"executor": "@nrwl/jest:jest",
+			"outputs": ["{workspaceRoot}/coverage/libs/js-cookie-service"],
+			"options": {
+				"jestConfig": "libs/js-cookie-service/jest.config.ts",
+				"passWithNoTests": true
+			}
+		}
+	},
+	"tags": []
+}
