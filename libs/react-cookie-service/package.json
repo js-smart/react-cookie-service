@@ -1,33 +1,33 @@
 {
-  "name": "@js-smart/react-cookie-service",
-  "version": "2.2.0",
-  "private": false,
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/js-smart/react-cookie-service"
-  },
-  "author": {
-    "name": "Pavan Kumar Jadda",
-    "email": "contactdeveloperpj@gmail.com"
-  },
-  "keywords": [
-    "react",
-    "react17",
-    "react18",
-    "react-hooks",
-    "typescript",
-    "cookie",
-    "js-cookie",
-    "react-cookie",
-    "react-cookies",
-    "react-cookie-service",
-    "js-cookie-service"
-  ],
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/js-smart/react-cookie-service/issues"
-  },
-  "peerDependencies": {
-    "react": "^16.8.0 || ^17.0.0 || ^18.0.0"
-  }
+	"name": "@js-smart/react-cookie-service",
+	"version": "2.2.0",
+	"private": false,
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/js-smart/react-cookie-service"
+	},
+	"author": {
+		"name": "Pavan Kumar Jadda",
+		"email": "contactdeveloperpj@gmail.com"
+	},
+	"keywords": [
+		"react",
+		"react17",
+		"react18",
+		"react-hooks",
+		"typescript",
+		"cookie",
+		"js-cookie",
+		"react-cookie",
+		"react-cookies",
+		"react-cookie-service",
+		"js-cookie-service"
+	],
+	"license": "MIT",
+	"bugs": {
+		"url": "https://github.com/js-smart/react-cookie-service/issues"
+	},
+	"peerDependencies": {
+		"react": "^16.8.0 || ^17.0.0 || ^18.0.0"
+	}
 }
