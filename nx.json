@@ -29,7 +29,7 @@
 			}
 		}
 	},
-	"defaultProject": "react-cookie-service-example",
+	"defaultProject": "react-cookie-service",
 	"$schema": "./node_modules/nx/schemas/nx-schema.json",
 	"targetDefaults": {
 		"build": {
