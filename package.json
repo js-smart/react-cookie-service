@@ -34,6 +34,7 @@
 		"react-is": "18.2.0",
 		"react-router-dom": "6.8.1",
 		"regenerator-runtime": "0.13.9",
+		"uuid": "latest",
 		"tslib": "^2.4.0"
 	},
 	"devDependencies": {
