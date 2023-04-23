@@ -1,0 +1,78 @@
+{
+	"name": "react-cookie-service-example",
+	"$schema": "../../node_modules/nx/schemas/project-schema.json",
+	"sourceRoot": "apps/react-cookie-service-example/src",
+	"projectType": "application",
+	"targets": {
+		"build": {
+			"executor": "@nrwl/vite:build",
+			"outputs": ["{options.outputPath}"],
+			"defaultConfiguration": "production",
+			"options": {
+				"outputPath": "dist/apps/react-cookie-service-example"
+			},
+			"configurations": {
+				"development": {
+					"mode": "development"
+				},
+				"production": {
+					"mode": "production"
+				}
+			}
+		},
+		"serve": {
+			"executor": "@nrwl/vite:dev-server",
+			"defaultConfiguration": "development",
+			"options": {
+				"buildTarget": "react-cookie-service-example:build"
+			},
+			"configurations": {
+				"development": {
+					"buildTarget": "react-cookie-service-example:build:development",
+					"hmr": true
+				},
+				"production": {
+					"buildTarget": "react-cookie-service-example:build:production",
+					"hmr": false
+				}
+			}
+		},
+		"preview": {
+			"executor": "@nrwl/vite:preview-server",
+			"defaultConfiguration": "development",
+			"options": {
+				"buildTarget": "react-cookie-service-example:build"
+			},
+			"configurations": {
+				"development": {
+					"buildTarget": "react-cookie-service-example:build:development"
+				},
+				"production": {
+					"buildTarget": "react-cookie-service-example:build:production"
+				}
+			}
+		},
+		"test": {
+			"executor": "@nrwl/vite:test",
+			"outputs": ["coverage/apps/react-cookie-service-example"],
+			"options": {
+				"passWithNoTests": true,
+				"reportsDirectory": "../../coverage/apps/react-cookie-service-example"
+			}
+		},
+		"lint": {
+			"executor": "@nrwl/linter:eslint",
+			"outputs": ["{options.outputFile}"],
+			"options": {
+				"lintFilePatterns": ["apps/react-cookie-service-example/**/*.{ts,tsx,js,jsx}"]
+			}
+		},
+		"serve-static": {
+			"executor": "@nrwl/web:file-server",
+			"options": {
+				"buildTarget": "react-cookie-service-example:build"
+			}
+		}
+	},
+	"tags": []
+}

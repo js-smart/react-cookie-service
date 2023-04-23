@@ -6,12 +6,15 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v1
-      - uses: actions/setup-node@v1
+      - uses: pnpm/action-setup@v2.2.2
+        with:
+          version: 7
+      - uses: actions/setup-node@v2
         with:
           node-version: 16
       - name: Install Dependencies
-        run: npm install --force
+        run: pnpm install
       - name: Run Tests
-        run: npm test react-cookie-service
+        run: pnpm test react-cookie-service
       - name: Build project
-        run: npm run  build  react-cookie-service
+        run: pnpm run build react-cookie-service

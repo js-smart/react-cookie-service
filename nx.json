@@ -1,46 +1,79 @@
 {
-	"npmScope": "pj",
-	"affected": {
-		"defaultBase": "master"
-	},
-	"implicitDependencies": {
-		"package.json": {
-			"dependencies": "*",
-			"devDependencies": "*"
-		},
-		".eslintrc.json": "*"
-	},
-	"tasksRunnerOptions": {
-		"default": {
-			"runner": "@nrwl/nx-cloud",
-			"options": {
-				"cacheableOperations": ["build", "lint", "test", "e2e"],
-				"accessToken": "MDRkOTUyZGQtYzk2Yy00ZjM3LWEwMTktNTllY2Q3MzI2YWNhfHJlYWQtd3JpdGU=",
-				"parallel": 1
-			}
-		}
-	},
-	"generators": {
-		"@nrwl/react": {
-			"application": {
-				"style": "scss",
-				"linter": "eslint",
-				"babel": true
-			},
-			"component": {
-				"style": "scss"
-			},
-			"library": {
-				"style": "scss",
-				"linter": "eslint"
-			}
-		}
-	},
-	"defaultProject": "react-cookie-service-example",
-	"$schema": "./node_modules/nx/schemas/nx-schema.json",
-	"targetDefaults": {
-		"build": {
-			"dependsOn": ["^build"]
-		}
-	}
+  "npmScope": "pj",
+  "affected": {
+    "defaultBase": "master"
+  },
+  "tasksRunnerOptions": {
+    "default": {
+      "runner": "@nrwl/nx-cloud",
+      "options": {
+        "accessToken": "ZjI5NTE0M2ItZjY0Yi00MzY0LWFkMTItMTJlZTY0MDM5OTE4fHJlYWQtd3JpdGU="
+      }
+    }
+  },
+  "generators": {
+    "@nrwl/react": {
+      "application": {
+        "style": "scss",
+        "linter": "eslint",
+        "bundler": "vite",
+        "babel": true
+      },
+      "component": {
+        "style": "scss"
+      },
+      "library": {
+        "style": "scss",
+        "linter": "eslint"
+      }
+    }
+  },
+  "defaultProject": "react-cookie-service-example",
+  "$schema": "./node_modules/nx/schemas/nx-schema.json",
+  "targetDefaults": {
+    "build": {
+      "dependsOn": [
+        "^build"
+      ],
+      "inputs": [
+        "production",
+        "^production"
+      ]
+    },
+    "lint": {
+      "inputs": [
+        "default",
+        "{workspaceRoot}/.eslintrc.json"
+      ]
+    },
+    "e2e": {
+      "inputs": [
+        "default",
+        "^production"
+      ]
+    },
+    "test": {
+      "inputs": [
+        "default",
+        "^production",
+        "{workspaceRoot}/jest.preset.js"
+      ]
+    }
+  },
+  "namedInputs": {
+    "default": [
+      "{projectRoot}/**/*",
+      "sharedGlobals"
+    ],
+    "sharedGlobals": [
+      "{workspaceRoot}/babel.config.json"
+    ],
+    "production": [
+      "default",
+      "!{projectRoot}/.eslintrc.json",
+      "!{projectRoot}/**/?(*.)+(spec|test).[jt]s?(x)?(.snap)",
+      "!{projectRoot}/tsconfig.spec.json",
+      "!{projectRoot}/jest.config.[jt]s"
+    ]
+  }
 }
