@@ -1,52 +1,32 @@
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
-import styles from './app.module.scss';
-
-import NxWelcome from './nx-welcome';
-
-import { Route, Routes, Link } from 'react-router-dom';
+import useCookies from '@js-smart/react-cookie-service';
+import {useState} from 'react';
+import { v4 as uuidv4 } from 'uuid';
 
 export function App() {
+	const {check,getCookie,setCookie,deleteCookie} = useCookies();
+	const [token, setToken] = useState(check('X-Auth-Token') ? getCookie('X-Auth-Token') : 'token not set');
+
+	function setAndRefreshCookie(cookieName: string) {
+		setCookie(cookieName, uuidv4(), {path: '/'});
+		setToken(check('X-Auth-Token') ? getCookie('X-Auth-Token') : 'token not set');
+	}
+
+	function deleteAndRefreshCookie(cookieName: string) {
+		deleteCookie('X-Auth-Token')
+		setToken(check('X-Auth-Token') ? getCookie('X-Auth-Token') : 'token not set');
+	}
 	return (
 		<>
-			<NxWelcome title="react-cookie-service-example" />
-
 			<div />
-
-			{/* START: routes */}
-			{/* These routes and navigation have been generated for you */}
-			{/* Feel free to move and update them to fit your needs */}
 			<br />
 			<hr />
 			<br />
-			<div role="navigation">
-				<ul>
-					<li>
-						<Link to="/">Home</Link>
-					</li>
-					<li>
-						<Link to="/page-2">Page 2</Link>
-					</li>
-				</ul>
+			<div>
+				X-Auth-Token: {token}
 			</div>
-			<Routes>
-				<Route
-					path="/"
-					element={
-						<div>
-							This is the generated root route. <Link to="/page-2">Click here for page 2.</Link>
-						</div>
-					}
-				/>
-				<Route
-					path="/page-2"
-					element={
-						<div>
-							<Link to="/">Click here to go back to root page.</Link>
-						</div>
-					}
-				/>
-			</Routes>
-			{/* END: routes */}
+			<br/>
+			<button onClick={() => setAndRefreshCookie('X-Auth-Token')}>Set X-Auth-Token cookie</button>
+			<button style={{marginLeft:'20px'}} onClick={() => deleteAndRefreshCookie('X-Auth-Token')}>Delete X-Auth-Token</button>
 		</>
 	);
 }
