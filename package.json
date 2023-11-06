@@ -82,5 +82,12 @@
 		"webpack": "^5.88.1",
 		"webpack-merge": "^5.9.0",
 		"@nx/eslint": "17.0.3"
-	}
+	},
+  "browserslist": {
+    "production": [
+      "last 2 chrome versions",
+      "last 3 firefox versions",
+      "last 2 safari versions"
+    ]
+  }
 }

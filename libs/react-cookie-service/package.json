@@ -29,5 +29,15 @@
   },
   "peerDependencies": {
     "react": "^16.8.0 || ^17.0.0 || ^18.0.0"
+  },
+  "browserslist": {
+    "production": [
+      "last 10 chrome versions",
+      "last 10 ChromeAndroid versions",
+      "last 10 Firefox versions",
+      "last 10 Edge major versions",
+      "last 3 Safari major versions",
+      "last 3 iOS major versions"
+    ]
   }
 }
