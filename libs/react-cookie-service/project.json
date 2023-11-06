@@ -13,25 +13,26 @@
 				"project": "libs/react-cookie-service/package.json",
 				"entryFile": "libs/react-cookie-service/src/index.ts",
 				"external": ["react/jsx-runtime"],
-				"rollupConfig": "@nrwl/react/plugins/bundle-rollup",
+				"rollupConfig": "@nx/react/plugins/bundle-rollup",
 				"assets": [
 					{
 						"glob": "libs/react-cookie-service/README.md",
 						"input": ".",
 						"output": "."
 					}
-				]
+				],
+				"updateBuildableProjectDepsInPackageJson": true
 			}
 		},
 		"lint": {
-			"executor": "@nrwl/linter:eslint",
+			"executor": "@nx/eslint:lint",
 			"options": {
 				"lintFilePatterns": ["libs/react-cookie-service/**/*.{ts,tsx,js,jsx}"]
 			},
 			"outputs": ["{options.outputFile}"]
 		},
 		"test": {
-			"executor": "@nrwl/jest:jest",
+			"executor": "@nx/jest:jest",
 			"outputs": ["{workspaceRoot}/coverage/libs/react-cookie-service"],
 			"options": {
 				"jestConfig": "libs/react-cookie-service/jest.config.ts",

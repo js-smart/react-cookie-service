@@ -8,18 +8,18 @@ jobs:
   publish:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v1
-      - uses: actions/setup-node@v1
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v3
         with:
-          node-version: 16
+          node-version: 18
       - name: Install Dependencies
-        run: npm install --force
+        run: pnpm install --frozen-lockfile
       - name: Build project
-        run: npm run  build  react-cookie-service
+        run: pnpm build react-cookie-service
       - name: Run Tests
-        run: npm test react-cookie-service
+        run: pnpm test react-cookie-service
       - name: Publish to NPM
-        uses: JS-DevTools/npm-publish@v1
+        uses: JS-DevTools/npm-publish@v3
         with:
           token: ${{ secrets.NPM_TOKEN }}
           package: libs/react-cookie-service/package.json

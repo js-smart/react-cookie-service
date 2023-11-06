@@ -54,21 +54,21 @@
 		},
 		"test": {
 			"executor": "@nrwl/vite:test",
-			"outputs": ["coverage/apps/react-cookie-service-example"],
+			"outputs": ["{workspaceRoot}/coverage/apps/react-cookie-service-example"],
 			"options": {
 				"passWithNoTests": true,
 				"reportsDirectory": "../../coverage/apps/react-cookie-service-example"
 			}
 		},
 		"lint": {
-			"executor": "@nrwl/linter:eslint",
+			"executor": "@nx/eslint:lint",
 			"outputs": ["{options.outputFile}"],
 			"options": {
 				"lintFilePatterns": ["apps/react-cookie-service-example/**/*.{ts,tsx,js,jsx}"]
 			}
 		},
 		"serve-static": {
-			"executor": "@nrwl/web:file-server",
+			"executor": "@nx/web:file-server",
 			"options": {
 				"buildTarget": "react-cookie-service-example:build"
 			}
