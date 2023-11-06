@@ -20,11 +20,12 @@
 						"input": ".",
 						"output": "."
 					}
-				]
+				],
+				"updateBuildableProjectDepsInPackageJson": true
 			}
 		},
 		"lint": {
-			"executor": "@nx/linter:eslint",
+			"executor": "@nx/eslint:lint",
 			"options": {
 				"lintFilePatterns": ["libs/js-cookie-service/**/*.{ts,tsx,js,jsx}"]
 			},

@@ -1,15 +1,6 @@
 {
-	"npmScope": "pj",
 	"affected": {
 		"defaultBase": "master"
-	},
-	"tasksRunnerOptions": {
-		"default": {
-			"runner": "nx-cloud",
-			"options": {
-				"accessToken": "ZjI5NTE0M2ItZjY0Yi00MzY0LWFkMTItMTJlZTY0MDM5OTE4fHJlYWQtd3JpdGU="
-			}
-		}
 	},
 	"generators": {
 		"@nx/react": {
@@ -56,5 +47,6 @@
 			"!{projectRoot}/jest.config.[jt]s",
 			"!{projectRoot}/src/test-setup.[jt]s"
 		]
-	}
+	},
+	"nxCloudAccessToken": "ZjI5NTE0M2ItZjY0Yi00MzY0LWFkMTItMTJlZTY0MDM5OTE4fHJlYWQtd3JpdGU="
 }
