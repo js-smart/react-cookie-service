@@ -85,9 +85,12 @@
 	},
   "browserslist": {
     "production": [
-      "last 2 chrome versions",
-      "last 3 firefox versions",
-      "last 2 safari versions"
+      "last 10 chrome versions",
+      "last 10 ChromeAndroid versions",
+      "last 10 Firefox versions",
+      "last 10 Edge major versions",
+      "last 3 Safari major versions",
+      "last 3 iOS major versions"
     ]
   }
 }
