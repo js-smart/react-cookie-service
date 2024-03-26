@@ -115,6 +115,7 @@ export function setCookie(
     domain?: string;
     secure?: boolean;
     sameSite?: 'Lax' | 'None' | 'Strict';
+    partitioned?: boolean;
   }
 ): void {
   let cookieString: string =
@@ -151,6 +152,11 @@ export function setCookie(
   // If `secure` flag is `true`, then set cookie secure flag
   if (options?.secure) {
     cookieString += 'secure;';
+  }
+
+  // If `partitioned` flag is `true`, then set cookie partitioned flag
+  if (options?.partitioned) {
+    cookieString += 'Partitioned;';
   }
 
   // Set cookie sameSite attribute
