@@ -106,6 +106,7 @@ export default function useCookies() {
    * path  Cookie path. Defaults to '/'
    * domain  Cookie domain
    * secure  Secure flag
+   * partitioned Partitioned flag
    * sameSite  OWASP same site token `Lax`, `None`, or `Strict`. Defaults to `Lax`
    * </pre>
    * @author Pavan Kumar Jadda
@@ -120,6 +121,7 @@ export default function useCookies() {
       domain?: string;
       secure?: boolean;
       sameSite?: 'Lax' | 'None' | 'Strict';
+      partitioned?: boolean;
     }
   ): void {
     let cookieString: string =
@@ -156,6 +158,11 @@ export default function useCookies() {
     // If `secure` flag is `true`, then set cookie secure flag
     if (options?.secure) {
       cookieString += 'secure;';
+    }
+
+    // If `partitioned` flag is `true`, then set cookie partitioned flag
+    if (options?.partitioned) {
+      cookieString += 'Partitioned;';
     }
 
     // Set cookie sameSite attribute
