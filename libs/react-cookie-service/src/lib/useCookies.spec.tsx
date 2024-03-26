@@ -73,6 +73,12 @@ describe('useCookies library tests', () => {
     deleteCookie('token');
   });
 
+  it('set token cookie with partitioned true', () => {
+    setCookie('token', token, { partitioned: true});
+    console.log('Partitioned cookie: ', getCookie('token'));
+    expect(getCookie('token')).toBe(token);
+    deleteCookie('token');
+  });
 
   it('deletes existing X-Auth-Token cookie and cookie should not present', () => {
     deleteCookie('X-Auth-Token');
