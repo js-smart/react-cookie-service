@@ -29,6 +29,7 @@
     "document-register-element": "1.14.10",
     "react": "18.2.0",
     "react-dom": "18.2.0",
+    "react-router-dom": "6.22.3",
     "react-is": "18.2.0",
     "regenerator-runtime": "0.13.9",
     "tslib": "^2.4.0"
@@ -42,9 +43,11 @@
     "@nrwl/rollup": "18.2.4",
     "@nrwl/webpack": "18.2.4",
     "@nx/cypress": "18.2.4",
+    "@nx/eslint": "18.2.4",
     "@nx/eslint-plugin": "18.2.4",
     "@nx/jest": "18.2.4",
     "@nx/react": "18.2.4",
+    "@nx/vite": "18.2.4",
     "@nx/web": "18.2.4",
     "@nx/workspace": "18.2.4",
     "@pmmmwh/react-refresh-webpack-plugin": "^0.5.10",
@@ -57,6 +60,7 @@
     "@types/uuid": "^9.0.2",
     "@typescript-eslint/eslint-plugin": "7.6.0",
     "@typescript-eslint/parser": "7.6.0",
+    "@vitejs/plugin-react": "4.2.1",
     "babel-jest": "29.6.1",
     "css-loader": "^6.8.1",
     "dotenv": "16.3.1",
@@ -79,9 +83,10 @@
     "typescript": "5.4.5",
     "url-loader": "^4.1.1",
     "uuid": "^9.0.0",
+    "vite": "^5.2.8",
+    "vite-tsconfig-paths": "^4.3.2",
     "webpack": "^5.88.1",
-    "webpack-merge": "^5.9.0",
-    "@nx/eslint": "18.2.4"
+    "webpack-merge": "^5.9.0"
   },
   "browserslist": {
     "production": [
@@ -94,4 +99,3 @@
     ]
   }
 }
-
