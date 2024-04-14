@@ -3,6 +3,7 @@
 	"$schema": "../../node_modules/nx/schemas/project-schema.json",
 	"sourceRoot": "apps/react-cookie-service-example/src",
 	"projectType": "application",
+	"tags": [],
 	"targets": {
 		"build": {
 			"executor": "@nrwl/vite:build",
@@ -62,10 +63,7 @@
 		},
 		"lint": {
 			"executor": "@nx/eslint:lint",
-			"outputs": ["{options.outputFile}"],
-			"options": {
-				"lintFilePatterns": ["apps/react-cookie-service-example/**/*.{ts,tsx,js,jsx}"]
-			}
+			"outputs": ["{options.outputFile}"]
 		},
 		"serve-static": {
 			"executor": "@nx/web:file-server",
@@ -73,6 +71,5 @@
 				"buildTarget": "react-cookie-service-example:build"
 			}
 		}
-	},
-	"tags": []
+	}
 }

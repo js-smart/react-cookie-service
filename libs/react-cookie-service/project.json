@@ -3,6 +3,7 @@
 	"$schema": "../../node_modules/nx/schemas/project-schema.json",
 	"sourceRoot": "libs/react-cookie-service/src",
 	"projectType": "library",
+	"tags": [],
 	"targets": {
 		"build": {
 			"executor": "@nrwl/rollup:rollup",
@@ -26,19 +27,14 @@
 		},
 		"lint": {
 			"executor": "@nx/eslint:lint",
-			"options": {
-				"lintFilePatterns": ["libs/react-cookie-service/**/*.{ts,tsx,js,jsx}"]
-			},
 			"outputs": ["{options.outputFile}"]
 		},
 		"test": {
 			"executor": "@nx/jest:jest",
 			"outputs": ["{workspaceRoot}/coverage/libs/react-cookie-service"],
 			"options": {
-				"jestConfig": "libs/react-cookie-service/jest.config.ts",
-				"passWithNoTests": true
+				"jestConfig": "libs/react-cookie-service/jest.config.ts"
 			}
 		}
-	},
-	"tags": []
+	}
 }

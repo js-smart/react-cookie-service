@@ -1,7 +1,4 @@
 {
-	"affected": {
-		"defaultBase": "master"
-	},
 	"generators": {
 		"@nx/react": {
 			"application": {
@@ -26,14 +23,25 @@
 			"dependsOn": ["^build"],
 			"inputs": ["production", "^production"]
 		},
-		"lint": {
-			"inputs": ["default", "{workspaceRoot}/.eslintrc.json"]
-		},
-		"e2e": {
-			"inputs": ["default", "^production"]
-		},
 		"test": {
 			"inputs": ["default", "^production", "{workspaceRoot}/jest.preset.js"]
+		},
+		"@nx/jest:jest": {
+			"inputs": ["default", "^production", "{workspaceRoot}/jest.preset.js"],
+			"cache": true,
+			"options": {
+				"passWithNoTests": true
+			},
+			"configurations": {
+				"ci": {
+					"ci": true,
+					"codeCoverage": true
+				}
+			}
+		},
+		"@nx/eslint:lint": {
+			"inputs": ["default", "{workspaceRoot}/.eslintrc.json"],
+			"cache": true
 		}
 	},
 	"namedInputs": {
@@ -48,5 +56,7 @@
 			"!{projectRoot}/src/test-setup.[jt]s"
 		]
 	},
-	"nxCloudAccessToken": "ZjI5NTE0M2ItZjY0Yi00MzY0LWFkMTItMTJlZTY0MDM5OTE4fHJlYWQtd3JpdGU="
+	"nxCloudAccessToken": "ZjI5NTE0M2ItZjY0Yi00MzY0LWFkMTItMTJlZTY0MDM5OTE4fHJlYWQtd3JpdGU=",
+	"useInferencePlugins": false,
+	"defaultBase": "master"
 }
