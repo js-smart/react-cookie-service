@@ -3,6 +3,7 @@
 	"$schema": "../../node_modules/nx/schemas/project-schema.json",
 	"sourceRoot": "apps/react-cookie-service-example/src",
 	"projectType": "application",
+	"tags": [],
 	"targets": {
 		"build": {
 			"executor": "@nrwl/vite:build",
@@ -70,6 +71,5 @@
 				"buildTarget": "react-cookie-service-example:build"
 			}
 		}
-	},
-	"tags": []
+	}
 }

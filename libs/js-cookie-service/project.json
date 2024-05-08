@@ -3,6 +3,7 @@
 	"$schema": "../../node_modules/nx/schemas/project-schema.json",
 	"sourceRoot": "libs/js-cookie-service/src",
 	"projectType": "library",
+	"tags": [],
 	"targets": {
 		"build": {
 			"executor": "@nrwl/rollup:rollup",
@@ -35,6 +36,5 @@
 				"jestConfig": "libs/js-cookie-service/jest.config.ts"
 			}
 		}
-	},
-	"tags": []
+	}
 }
